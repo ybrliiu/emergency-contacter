@@ -1,10 +1,10 @@
-package liiu.emergencyContactor.domain.contactor;
+package liiu.emergencyContactor.domain.contactor
 
-import liiu.emergencyContactor.domain.contactor.ContactParty;
+class Contacter(communicator: Communicator, contactParty: ContactParty) {
 
-trait Contacter {
-
-  def contact(contactParty: ContactParty): Unit
+  def contact(content: ContactContent): Unit = {
+    this.communicator.communicate(this.contactParty, content)
+  }
 
 }
 
