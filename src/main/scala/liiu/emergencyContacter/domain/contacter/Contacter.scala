@@ -1,8 +1,11 @@
-package liiu.emergencyContactor.domain.contactor
+package liiu.emergencyContacter.domain.contacter
 
-class Contacter(communicator: Communicator, contactParty: ContactParty) {
+class Contacter(
+  private val communicator: Communicator,
+  private val contactParty: ContactParty
+) {
 
-  def contact(content: ContactContent): Unit = {
+  def contact(content: ContactContent): Either[String, String] = {
     this.communicator.communicate(this.contactParty, content)
   }
 

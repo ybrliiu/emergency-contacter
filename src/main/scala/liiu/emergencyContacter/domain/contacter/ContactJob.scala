@@ -1,8 +1,8 @@
-package liiu.emergencyContactor.domain.contactor
+package liiu.emergencyContacter.domain.contacter
 
-class NotificationJob(contacter: Contacter) {
+class NotificationJob(private val contacter: Contacter) {
 
-  def contact(content: ContactContent): Unit = {
+  def contact(content: ContactContent): Either[String, String] = {
     this.contacter.contact(content)
   }
 

@@ -1,8 +1,12 @@
-package liiu.emergencyContactor.domain.contactor
+package liiu.emergencyContacter.domain.contacter
 
 trait Communicator {
 
-  def communicate(party: ContactParty, content: ContactContent): Unit
+  def canCommunicate(party: ContactParty, content: ContactContent): Boolean = {
+    content.isAvailable && party.isAvailable
+  }
+
+  def communicate(party: ContactParty, content: ContactContent): Either[String, String]
 
 }
 
