@@ -8,13 +8,8 @@ class MockCommunicator extends Communicator {
   val messages: HashMap[String, String] = new HashMap
 
   def communicate(party: ContactParty, content: ContactContent): Either[String, String] = {
-    if ( this.canCommunicate(party, content) ) {
-      this.messages += ( party.toString() -> content.toString() )
-      Right("Success.")
-    }
-    else {
-      Left("Failed.")
-    }
+    this.messages += ( party.toString() -> content.toString() )
+    Right("Success.")
   }
 
 }
